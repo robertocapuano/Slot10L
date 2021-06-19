@@ -1,83 +1,11 @@
-10 B=
-20 DIM SP(3,16):
+10 SCREEN1,0,0:COLOR10,9,9:KEYOFF:DEFINTA-Z:B=6349:Z=RND(-TIME):CLS:M=10
+20 dimSP(2,15):dimR(2,2):forI=0to15:A=RND(1)*3:forJ=0to2:SP(J,I)=A:nextJ,I
+50 forJ=0to2:forI=0to2:A=SP(J,(ST(J)+I)mod16)+1:vpokeB+64*I+J*2,A
+60 R(J,I)=A:nextI,J:
+90 CH=0:forJ=0to2:CK=(SR(J)>0):CH=CH+CK:SR(J)=SR(J)-1:
+100 ST(J)=(ST(J)-CK*1)mod15:next:if CH<>0then:play"T120O4L15A":goto50
+105 forK=0to2:ifR(0,K)=R(1,K)andR(1,K)=R(2,K)thenM=M+10:play"T120O4L15G"
+110 nextK:LOCATE1,1:?"$";M;"  ":
+120 K$=INKEY$:IFK$=""then120
+130 M=M-1:forJ=0to2:SR(J)=RND(1)*15:nextJ: goto 90
 
-
-
-10 screen0,0,0:COLOR1,14,14:KEYOFF:CLS:DEFINTA-Z:B=base(0)+40*7+15
-20 S$="........":CH$="rnbkqbnrpppppppp"+S$+S$+S$+S$+"PPPPPPPPRNBKQBNR" 
-30 forI=0to63:J=I/8:C$=MID$(CH$,I+1,1):vpoke B+40*J+(Imod8),ASC(C$):next I
-40 forI=0to7:vpokeB-2+i*40,56-i:vpokeB+9*40+i,65+32+i:nextI
-50 k$=INPUT$(1)
-
-30 forI=0to63:C$=MID$(CH$,I+1,1):?(C$):next I
-20 CH$="RNBKQBNRPPPPPPPP":forI=1to6:CH$=CH$+'........':NEXTI:CH$=CH$+'pppppppprnbkqbnr'
-
-
-
-minimal
-
-10 screen0,0,0:COLOR1,14,14:KEYOFF:CLS:DEFINTA-Z: :B=base(0)+40*7+15:PI$="RNBKQBNR":
-20 forI=0to7:READ R:VPOKE B+I,R+32:VPOKE B+7*40+I,R:NEXTI
-25 forI=0to7:VPOKE B+40+I,80+32:VPOKE B+6*40+I,80:NEXTI
-30 forI=2to5:forJ=0to7:VPOKE B+I*40+J,46:nextJ,I
-40 forI=0to7:vpokeB-2+i*40,56-i:vpokeB+9*40+i,65+32+i:nextI
-90 k$=INPUT$(1)
-100 DATA 82,78,66,75,81,66,78,82
-
-P +1, +2
-R +1, 
-
-
-R 52 82
-N 4E 78
-B 42 66
-K 4B 75
-Q 51 81
-P 50 80
-
-
-rem gfx
-10 SCREEN5,0,0:COLOR15,14,14:PSET(0,0):KEYOFF:DEFINTA-Z:open"grp:"as#1:Z=RND(-TIME):CLS
-20 ?#1,"CHESS";:COLOR1:?#1,"10L":PI$="RNBKQBNR":
-25 DIM CH$(8,8): PSET(50,50):forI=0to7:A$=MID$(PI$,I+1,1): CH$(0,I)=A$:CH$(7,I)=A$: next I
-30 forI=1to8:forJ=1to8:line(80+i*8,50+j*8)-step(8,8),(I+J)mod2,bf::  nextJ,I
-35 forI=1to8:forJ=1to8:PSET(80+J*8,50+I*8):color(I+J)mod2,1-(I+J)mod2:?#1,CH$(I-1,J-1):  nextJ,I
-40 K$=INPUT$(1)
-
-CHR$(200)
-
-
-RNBKQBNR
-PPPPPPPP
-
-1 SCREEN5,0,0:COLOR15,14,14:KEYOFF:DEFINTA-Z:open"grp:"as#1:Z=RND(-TIME):?#1,"CHESS";:COLOR1:?#1,"10L":  K$=INPUT$(1):CLS
-FORI=BASE(2)TOBASE(2)+1023:VPOKEI+1024,VPEEK(I)XOR255:NEXT
-
-
-
-rem zx81
-10 screen0,0,0:COLOR1,14,14:KEYOFF:CLS:DEFINTA-Z: :B=base(0)+40*8+15:FORI=BASE(2)TOBASE(2)+1023:VPOKEI+1024,VPEEK(I)XOR255:NEXT: ?"CHESS10L":
-20 forI=0to7:READ R:VPOKE B+I,R+128:VPOKE B+7*40+I,R:NEXTI
-25 forI=0to7:VPOKE B+40+I,80+128:VPOKE B+6*40+I,80:NEXTI
-30 forI=2to5:forJ=0to7:VPOKE B+I*40+J, 32+128*((I+J)mod2):  nextJ,I
-
-90 k$=INPUT$(1)
-100 DATA 82,78,66,75,81,66,78,82
-
-100 DATA 52,4E,42,4B,51,42,4E,52
-
-110 DATA 20,a0,20,a0,C1,C2,C3
-
-
-
-
-
-
-
-
-  vpoke base(0),32+128
-  
-  
-  
-  
-  
