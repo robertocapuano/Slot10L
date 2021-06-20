@@ -3,6 +3,12 @@ SLOT10L is a simple slot machine simulator in 10 lines of MSX2 BASIC v3.
 
 ![screenshot](capture.png)
 
+I made this game for the pleasure of participating in a GameJam competition. 
+
+For other commitments I set myself a limit of 90 minutes to complete the project - the time of a boring football match of Euro 2020.
+
+MSX was not the platform of my childhood - I only owned Commodore computers - but it was a mature choice: I think it has the best version of BASIC among 8-bit machines.
+
 # Game Logic
 Player presses spacebar to start spin. 
 Each spin costs 1$ and if 3 symbols are on the same horizontal line the user wins 10$.
