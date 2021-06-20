@@ -52,7 +52,7 @@ Print game title. Render some random graphics.
 Render wheels symbols on screen.
 
 ```
-4 R(J,I)=A:nextI,J:LOCATE22,0
+4 R(J,I)=A:nextI,J:LOCATE7,22:?"PRESS SPACEBAR":LOCATE22,0
 ```
 R array contains actual screen symbol, in order to reduce code after.
 
@@ -76,7 +76,7 @@ In case of victory money value (M) is increased a sound is played.
 ```
 Updated money value is rendered
 ```
-9 K$=INKEY$:IFK$=""then9:elseM=M-1:forJ=0to2:SR(J)=RND(1)*15:nextJ:goto5
+9 K$=INKEY$:IFK$<>" "then9:elseM=M-1:forJ=0to2:SR(J)=RND(1)*15:nextJ:goto5
 
 ```
 Read the user input. A random value for each wheel step is generated.
