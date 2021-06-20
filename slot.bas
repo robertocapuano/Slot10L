@@ -8,4 +8,3 @@
 7 forK=0to2:ifR(0,K)=R(1,K)andR(1,K)=R(2,K)thenM=M+10:play"T120O4L60B"
 8 nextK:LOCATE22,0:?"$";M;"  ":LOCATE22,0
 9 K$=INKEY$:IFK$<>" "then9:elseM=M-1:forJ=0to2:SR(J)=RND(1)*15:nextJ:goto5
-
