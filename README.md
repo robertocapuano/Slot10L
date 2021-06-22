@@ -78,11 +78,11 @@ For each spin step a sound is played.
 Checks if 3 symbols are in the same line.
 In case of victory money value (M) is increased a sound is played.
 ```
-8 nextK:LOCATE22,0:?"$";M;"  ":LOCATE22,0
+8 nextK:LOCATE22,0:?"$";M;"  ":LOCATE22,0:S$=" ":
 ```
 Updated money value is rendered
 ```
-9 K$=INKEY$:IFK$<>" "then9:elseM=M-1:forJ=0to2:SR(J)=RND(1)*15:nextJ:goto5
+9K$=INKEY$:IFK$<>S$then9:elseM=M-1:forJ=0to2:SR(J)=RND(1)*15:nextJ:goto5
 
 ```
 Read the user input. A random value for each wheel step is generated.
